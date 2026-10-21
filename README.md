@@ -39,7 +39,7 @@ Parsing and tracking frequent, non-standardized revision updates published acros
 
 ## 10 real questions
 
-See docs/QUESTIONS.md.
+See [docs/QUESTIONS.md](docs/QUESTIONS.md)
 
 ---
 
