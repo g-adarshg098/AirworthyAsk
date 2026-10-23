@@ -1,6 +1,5 @@
 import csv
 import hashlib
-from logging import root
 import os
 import sys
 import time
