@@ -1,14 +1,13 @@
 import csv
-
-from datetime import date
 import hashlib
 import os
 import sys
 import time
-import requests
-
-from urllib.robotparser import RobotFileParser
+from datetime import date
 from urllib.parse import urlparse
+from urllib.robotparser import RobotFileParser
+
+import requests
 
 RAW = "data/raw"
 MANIFEST = "data/manifest.csv"
