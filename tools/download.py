@@ -1,11 +1,14 @@
 from datetime import date
 import csv
+
 import hashlib
 import os
 import sys
 import time
+
 from urllib.parse import urlparse
 from urllib.robotparser import RobotFileParser
+
 import requests
 
 RAW = "data/raw"
