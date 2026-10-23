@@ -1,6 +1,6 @@
-from datetime import date
 import csv
 
+from datetime import date
 import hashlib
 import os
 import sys
