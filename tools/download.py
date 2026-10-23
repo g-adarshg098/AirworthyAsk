@@ -5,8 +5,9 @@ import hashlib
 import os
 import sys
 import time
-  
-from datetime import date
+import requests
+
+from urllib.robotparser import RobotFileParser
 from urllib.parse import urlparse
 
 RAW = "data/raw"
