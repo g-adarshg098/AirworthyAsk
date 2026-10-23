@@ -1,5 +1,5 @@
-import csv
 from datetime import date
+import csv
 import hashlib
 import os
 import sys
