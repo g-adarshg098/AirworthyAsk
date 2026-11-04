@@ -31,4 +31,4 @@ Chat requires `GEMINI_API_KEY`; estimated USD cost requires the per-model token 
 ## Daily log
 | Date | What I did today | Commit |
 |---|---|---|
-| | | |
+| 04 Nov 2026 | CI workflow (test + docker-smoke), pre-commit hooks, deployed to Render, live link in README | pending |
