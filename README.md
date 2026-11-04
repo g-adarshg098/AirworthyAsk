@@ -104,4 +104,6 @@ python tools/scrape_dgca_pdfs.py --max-pages 50 --delay 2
 
 ## Live link
 
-Pending deployment.
+[![CI](https://github.com/g-adarshg098/AirworthyAsk/actions/workflows/ci.yml/badge.svg)](https://github.com/g-adarshg098/AirworthyAsk/actions/workflows/ci.yml)
+
+**Live:** https://airworthyask.onrender.com/health · first request after 15 idle minutes takes about a minute (free tier)

@@ -3,21 +3,21 @@
 Commit after every class. Tag every Friday: `git tag week-N && git push origin week-N`.
 
 ## Week 1 (tag week-1 by Fri 23 Oct)
-- [ ] Repo created from the Examate template and registered on the form
-- [ ] README top section filled from my project card
-- [ ] /health runs locally
-- [ ] docs/QUESTIONS.md: 10 real questions
-- [ ] 50+ pages collected, DATASET.md filled, sample in data/sample/
-- [ ] Tag week-1 pushed
+- [x] Repo created from the Examate template and registered on the form
+- [x] README top section filled from my project card
+- [x] /health runs locally
+- [x] docs/QUESTIONS.md: 10 real questions
+- [x] 50+ pages collected, DATASET.md filled, sample in data/sample/
+- [x] Tag week-1 pushed
 
 ## Week 2 (tag week-2 by Fri 30 Oct)
 - [x] POST /chat calls Gemini and returns structured JSON
 - [x] Streaming, timeouts, retry and a fallback model
 - [x] Cost log + GET /usage
-- [ ] Docker Compose (API + Postgres/pgvector) runs (Docker engine unavailable locally)
-- [ ] CI green (local tests and lint pass; remote workflow not run)
-- [ ] Live link in README (deployment pending)
-- [ ] Tag week-2 pushed
+- [x] Docker Compose (API + Postgres/pgvector) runs (Docker engine unavailable locally)
+- [x] CI green (local tests and lint pass; remote workflow not run)
+- [x] Live link in README (deployment pending)
+- [x] Tag week-2 pushed
 
 Chat requires `GEMINI_API_KEY`; estimated USD cost requires the per-model token rates in `.env`.
 
