@@ -11,12 +11,15 @@ Commit after every class. Tag every Friday: `git tag week-N && git push origin w
 - [ ] Tag week-1 pushed
 
 ## Week 2 (tag week-2 by Fri 30 Oct)
-- [ ] POST /chat calls an LLM and returns structured JSON
-- [ ] Streaming, timeouts, retry and a fallback model
-- [ ] Cost log + GET /usage
-- [ ] Docker Compose (API + Postgres/pgvector) runs
-- [ ] CI green, live link in README
+- [x] POST /chat calls Gemini and returns structured JSON
+- [x] Streaming, timeouts, retry and a fallback model
+- [x] Cost log + GET /usage
+- [ ] Docker Compose (API + Postgres/pgvector) runs (Docker engine unavailable locally)
+- [ ] CI green (local tests and lint pass; remote workflow not run)
+- [ ] Live link in README (deployment pending)
 - [ ] Tag week-2 pushed
+
+Chat requires `GEMINI_API_KEY`; estimated USD cost requires the per-model token rates in `.env`.
 
 ## Week 3 (tag week-3 by Fri 6 Nov)
 - [ ] Parser keeps page numbers and headings

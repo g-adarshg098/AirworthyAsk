@@ -46,15 +46,62 @@ See [docs/QUESTIONS.md](docs/QUESTIONS.md)
 ## Run it
 
 ```bash
-python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\Activate.ps1
 pip install -r requirements-dev.txt
-cp .env.example .env                                 # Windows: copy .env.example .env
+cp .env.example .env                                 # Windows: Copy-Item .env.example .env
 uvicorn app.main:app --reload
 curl localhost:8000/health
+```
+
+### Chat and usage
+
+Set `GEMINI_API_KEY` in `.env`, then start the API and Postgres/pgvector with
+`docker compose up --build`. The API creates its usage table on startup.
+The first time you set up the database, enable pgvector with:
+
+```powershell
+docker compose exec db psql -U app -d rag -c "CREATE EXTENSION IF NOT EXISTS vector; SELECT extversion FROM pg_extension WHERE extname = 'vector';"
+```
+
+`POST /chat` accepts `{"message":"..."}` and returns a structured `{"answer":"...","model":"..."}`.
+Set `"stream": true` for server-sent events containing JSON `delta` objects and a final `done`
+event. Transient provider failures are retried and then sent to the configured fallback model.
+`GEMINI_TIMEOUT_SECONDS`, `GEMINI_RETRIES`, `GEMINI_MODEL`, and
+`GEMINI_FALLBACK_MODEL` can be set in `.env`.
+
+`GET /usage` reports token totals, estimated cost, and the 100 most recent successful calls.
+To estimate cost, set the primary model rates in `GEMINI_INPUT_COST_PER_MILLION` and
+`GEMINI_OUTPUT_COST_PER_MILLION` and the fallback model rates in
+`GEMINI_FALLBACK_INPUT_COST_PER_MILLION` and
+`GEMINI_FALLBACK_OUTPUT_COST_PER_MILLION` (USD per 1 million tokens). Without configured
+rates, token usage is still recorded and estimated cost is `null`.
+
+```bash
+curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{\"message\":\"What is a CAR?\"}"
+curl http://localhost:8000/usage
+```
+
+### Download DGCA PDFs
+
+The scraper follows same-origin HTML pages under the DGCA portal, collects PDF links
+(including links stored in `data-url` attributes), checks `robots.txt`, and saves PDFs
+to `data/raw/dgca_pdfs` by default. It waits between requests and avoids replacing
+existing files. DGCA document links under `/jsp/dgca/` are downloaded from the public
+document-storage host used by the portal.
+
+```bash
+python tools/scrape_dgca_pdfs.py
+```
+
+Options such as the starting page, output directory, crawl limit, and request delay can
+be changed with `--url`, `--output`, `--max-pages`, and `--delay`. For example:
+
+```bash
+python tools/scrape_dgca_pdfs.py --max-pages 50 --delay 2
 ```
 
 ---
 
 ## Live link
 
-<Added in Week 2>
+Pending deployment.
