@@ -21,7 +21,7 @@ jobs:
       - name: Format check
         run: ruff format --check .
       - name: Test
-        run: pytest -q
+        run: python -m pytest -q
 
   docker-smoke:
     needs: test
